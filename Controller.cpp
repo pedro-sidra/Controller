@@ -41,3 +41,8 @@ double Controller::getError()
 	return _error;
 }
 
+double Controller::getValue()
+{
+	return( _Kp*_error + _Ki*_iError + _Kd*_dError);
+}
+

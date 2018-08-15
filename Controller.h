@@ -9,6 +9,7 @@ public:
 	void reset();
 	void setSP(float);
 	double getError();
+	double getValue();
 
 private:
 	float _error;
