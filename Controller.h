@@ -3,27 +3,24 @@
 #define CONTROLLER_H
 class Controller
 {
+	static void shiftVector(double *vec);
 public:
+
 	Controller(float Kp, float Ki, float Kd,float ts,float lowerbound,float upperbound);
 	float update(float PV);
 	void reset();
 	void setSP(float);
 	double getError();
 	double getValue();
-	double setBounds(double lower, double upper);
+	void setBounds(double lower, double upper);
+	// TODO: put this elsewhere
 
 private:
-	float _error;
-	float _iError;
-	float _dError;
-	float _errorLast;
+	double gains[3];
+	double error[3];
+	double out[2];
 
 	float _SP;
-
-	float _ts;
-	float _Kp;
-	float _Ki;
-	float _Kd;
 
 	double lower;
 	double upper;
