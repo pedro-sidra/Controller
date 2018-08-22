@@ -17,7 +17,6 @@ private:
 	float _iError;
 	float _dError;
 	float _errorLast;
-	float _iLimit;
 
 	float _SP;
 

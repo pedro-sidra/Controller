@@ -22,7 +22,7 @@ Controller::Controller(float Kp, float Ki, float Kd, float ts,float lowerbound=1
 
   	this->_ts = ts;
 
-		this-> lower = lowerbound;
+	this-> lower = lowerbound;
 	this-> upper = upperbound;
   	
 	this->_error = 0;
