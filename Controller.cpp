@@ -1,9 +1,8 @@
 #include "Controller.h"
 #include <Arduino.h>
 
- void Controller::shiftVector(double *vec)
+void Controller::shiftVector(double *vec,char size)
 {
-	char size = sizeof(vec)/sizeof(double);
 	for(int i=size-1; i>0 ; i--)
 	{
 		vec[i]= vec[i-1];
@@ -59,10 +58,11 @@ Controller::Controller(float Kp, float Ki, float Kd, float ts,float lowerbound=1
 
 float Controller::update(float nPV)
 {
-	Controller::shiftVector(error);
+	Controller::shiftVector(error,3);
 	error[0]=_SP-nPV;
-	shiftVector(out);
+	shiftVector(out,2);
 	out[0]=gains[0]*error[0]+gains[1]*error[1]+gains[2]*error[2]+out[1];
+	out[0] = sat(out[0],lower,upper);	
 	return out[0];
 }
 

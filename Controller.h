@@ -3,9 +3,9 @@
 #define CONTROLLER_H
 class Controller
 {
-	static void shiftVector(double *vec);
 public:
 
+	static void shiftVector(double *vec,char size);
 	Controller(float Kp, float Ki, float Kd,float ts,float lowerbound,float upperbound);
 	float update(float PV);
 	void reset();
